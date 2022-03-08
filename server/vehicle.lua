@@ -17,6 +17,8 @@ setmetatable(vehicle, {
 })
 
 local CVehicle = {}
+CVehicle.__index = CVehicle
+CVehicle.__newindex = CVehicle
 
 function CVehicle:despawn()
 	DeleteEntity(self.entity)
