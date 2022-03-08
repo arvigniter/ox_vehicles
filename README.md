@@ -1,5 +1,5 @@
 # ox_vehicles
-Vehicle management and persistence, designed for use with ox_core.
+Vehicle management and persistence, designed for use with ox_core.  
 Still a work in progress and contains some test code (i.e. saveProperties event).
 
 ## Requirements
@@ -8,7 +8,7 @@ Still a work in progress and contains some test code (i.e. saveProperties event)
 - [ox_lib](https://github.com/overextended/ox_lib)
 
 ## Database
-Utilises foreign keys to link the vehicle owner (charid) to the characters table.
+Utilises foreign keys to link the vehicle owner (charid) to the characters table.  
 Execute the following query.
 ```sql
 CREATE TABLE IF NOT EXISTS `vehicles` (
@@ -44,7 +44,7 @@ local vehicle = Vehicle(netid)
 ---@return table CVehicle
 ---Creates an instance of CVehicle. Loads existing vehicle data from the database, or generates new data.
 ---Provided by ox_core/imports
-function Ox.CreateVehicle(owner, model, coords, data)
+local vehicle = Ox.CreateVehicle(owner, model, coords, data)
 
 ---Deletes the entity.
 vehicle:despawn()
