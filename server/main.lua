@@ -49,8 +49,7 @@ AddEventHandler('onResourceStop', function(res)
 end)
 
 local function deleteVehicle(entity)
-	local plate = GetVehicleNumberPlateText(entity)
-	local veh = vehicle(plate)
+	local veh = vehicle(NetworkGetNetworkIdFromEntity(entity))
 
 	if veh then
 		veh:store()
@@ -64,13 +63,7 @@ lib.addCommand('group.admin', 'car', function(source, args)
 	local entity = GetVehiclePedIsIn(ped)
 
 	if entity then
-		local veh = vehicle(NetworkGetNetworkIdFromEntity(entity))
-
-		if veh then
-			veh:remove()
-		else
-			deleteVehicle(entity)
-		end
+		deleteVehicle(entity)
 	end
 
 	if args.owner then
@@ -94,12 +87,6 @@ lib.addCommand('group.admin', 'dv', function(source)
 	local entity = GetVehiclePedIsIn(ped)
 
 	if entity then
-		local obj = vehicle(NetworkGetNetworkIdFromEntity(entity))
-
-		if obj then
-			obj:remove()
-		else
-			deleteVehicle(entity)
-		end
+		deleteVehicle(entity)
 	end
 end)
