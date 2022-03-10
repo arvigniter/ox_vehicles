@@ -1,10 +1,10 @@
 local Query = {
-	DELETE_VEHICLE = 'DELETE FROM vehicles WHERE plate = ?',
-	STORE_VEHICLE = 'UPDATE vehicles SET stored = ? WHERE plate = ?',
-	VEHICLE_EXISTS = 'SELECT 1 FROM vehicles WHERE plate = ?',
-	SELECT_VEHICLES = 'SELECT charid, data, x, y, z, heading FROM vehicles WHERE stored = "false"',
-	UPDATE_VEHICLES = 'UPDATE vehicles SET x = ?, y = ?, z = ?, heading = ? WHERE plate = ?',
-	INSERT_VEHICLE = 'INSERT into vehicles (plate, charid, type, x, y, z, heading, data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+	DELETE_VEHICLE = 'DELETE FROM user_vehicles WHERE plate = ?',
+	STORE_VEHICLE = 'UPDATE user_vehicles SET stored = ? WHERE plate = ?',
+	VEHICLE_EXISTS = 'SELECT 1 FROM user_vehicles WHERE plate = ?',
+	SELECT_VEHICLES = 'SELECT charid, data, x, y, z, heading FROM user_vehicles WHERE stored = "false"',
+	UPDATE_VEHICLES = 'UPDATE user_vehicles SET x = ?, y = ?, z = ?, heading = ? WHERE plate = ?',
+	INSERT_VEHICLE = 'INSERT INTO user_vehicles (plate, charid, type, x, y, z, heading, data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
 }
 
 function MySQL:deleteVehicle(plate)

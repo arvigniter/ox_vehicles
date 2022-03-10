@@ -8,10 +8,9 @@ Still a work in progress and contains some test code (i.e. saveProperties event)
 - [ox_lib](https://github.com/overextended/ox_lib)
 
 ## Database
-Utilises foreign keys to link the vehicle owner (charid) to the characters table.  
-Execute the following query.
+Example table structure for ox_core and es_extended.  
 ```sql
-CREATE TABLE IF NOT EXISTS `vehicles` (
+CREATE TABLE IF NOT EXISTS `user_vehicles` (
   `plate` char(8) NOT NULL DEFAULT '',
   `charid` int(11) NOT NULL,
   `type` varchar(10) NOT NULL DEFAULT 'automobile',
@@ -24,8 +23,8 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `glovebox` longtext DEFAULT NULL,
   `stored` varchar(50) NOT NULL DEFAULT 'false',
   PRIMARY KEY (`plate`),
-  KEY `FK__characters` (`charid`) USING BTREE,
-  CONSTRAINT `FK__characters` FOREIGN KEY (`charid`) REFERENCES `characters` (`charid`) ON DELETE CASCADE
+  KEY `FK_user_vehicles_characters` (`charid`) USING BTREE,
+  CONSTRAINT `FK_user_vehicles_characters` FOREIGN KEY (`charid`) REFERENCES `characters` (`charid`) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 ```
 
