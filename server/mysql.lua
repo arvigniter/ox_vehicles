@@ -28,5 +28,5 @@ function MySQL:saveVehicles(parameters)
 end
 
 function MySQL:selectVehicles()
-	return MySQL.query.await(Query.SELECT_VEHICLES)
+	return self.query.await(Query.SELECT_VEHICLES)
 end
