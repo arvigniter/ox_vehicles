@@ -128,15 +128,17 @@ function vehicle.new(charid, data, x, y, z, heading)
 				CreateThread(function()
 					while true do
 						Wait(5000)
+						if not DoesEntityExist(entity) then return end
+
 						entityOwner = NetworkGetEntityOwner(entity)
 
 						if entityOwner > 0 then
-							return TriggerClientEvent('lualib:setVehicleProperties', entityOwner, self.netid, data)
+							return TriggerClientEvent('ox_lib:setVehicleProperties', entityOwner, self.netid, data)
 						end
 					end
 				end)
 			else
-				TriggerClientEvent('lualib:setVehicleProperties', entityOwner, self.netid, data)
+				TriggerClientEvent('ox_lib:setVehicleProperties', entityOwner, self.netid, data)
 			end
 
 			SetVehicleNumberPlateText(entity, data.plate)
