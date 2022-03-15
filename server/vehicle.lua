@@ -18,7 +18,6 @@ setmetatable(vehicle, {
 
 local CVehicle = {}
 CVehicle.__index = CVehicle
-CVehicle.__newindex = CVehicle
 
 function CVehicle:despawn()
 	DeleteEntity(self.entity)
@@ -141,7 +140,6 @@ function vehicle.new(charid, data, x, y, z, heading)
 				TriggerClientEvent('ox_lib:setVehicleProperties', entityOwner, self.netid, data)
 			end
 
-			SetVehicleNumberPlateText(entity, data.plate)
 			return self, vehicle + self
 		end
 	end
